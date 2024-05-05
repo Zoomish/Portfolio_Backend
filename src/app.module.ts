@@ -4,6 +4,7 @@ import { SequelizeModule } from '@nestjs/sequelize'
 import { ConfigModule } from '@nestjs/config'
 import { ServeStaticModule } from '@nestjs/serve-static'
 import * as path from 'path'
+import { Project } from './projects/project.model'
 
 @Module({
     imports: [
@@ -27,7 +28,7 @@ import * as path from 'path'
                     rejectUnauthorized: false,
                 },
             },
-            models: [],
+            models: [Project],
             autoLoadModels: true,
             synchronize: true,
         }),
