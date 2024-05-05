@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common'
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
 import { ProjectsModule } from './projects/projects.module'
 import { SequelizeModule } from '@nestjs/sequelize'
 import { ConfigModule } from '@nestjs/config'
@@ -35,7 +33,5 @@ import * as path from 'path'
         }),
         ProjectsModule,
     ],
-    controllers: [AppController],
-    providers: [AppService],
 })
 export class AppModule {}
