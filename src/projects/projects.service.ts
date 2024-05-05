@@ -1,7 +1,12 @@
 import { Injectable } from '@nestjs/common'
+import { Project } from './project.model'
+import { InjectModel } from '@nestjs/sequelize'
 
 @Injectable()
 export class ProjectsService {
+    constructor(
+        @InjectModel(Project) private projectRepository: typeof Project
+    ) {}
     findAll() {
         return `This action returns all projects-services`
     }
