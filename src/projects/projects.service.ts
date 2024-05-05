@@ -7,8 +7,10 @@ export class ProjectsService {
     constructor(
         @InjectModel(Project) private projectRepository: typeof Project
     ) {}
-    findAll() {
-        return `This action returns all projects-services`
+    async findAll() {
+        return await this.projectRepository.findAll({
+            include: { all: true },
+        })
     }
 
     findOne(id: number) {
