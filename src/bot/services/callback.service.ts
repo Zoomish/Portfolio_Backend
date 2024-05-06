@@ -18,7 +18,10 @@ export class CallbackService {
             text = JSON.stringify(data)
             bot.sendPhoto(
                 msg.chat.id,
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Moench_2339.jpg/300px-Moench_2339.jpg'
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Moench_2339.jpg/300px-Moench_2339.jpg',
+                {
+                    caption: text,
+                }
             )
         }
 
