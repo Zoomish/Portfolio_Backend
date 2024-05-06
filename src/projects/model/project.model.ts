@@ -5,7 +5,7 @@ interface ProjectCreationAttrs {
     title: string
     description: string
     image: string
-    tags: string[]
+    tags: string
 }
 @Table({ tableName: 'projects' })
 export class Project extends Model<Project, ProjectCreationAttrs> {
