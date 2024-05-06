@@ -1,5 +1,17 @@
-import { Controller, Delete, Get, Param, Patch } from '@nestjs/common'
+import {
+    Body,
+    Controller,
+    Delete,
+    Get,
+    Param,
+    Patch,
+    Post,
+    UploadedFile,
+    UseInterceptors,
+} from '@nestjs/common'
 import { ProjectsService } from './projects.service'
+import { CreateProjectDto } from './dto/create-project.dto'
+import { FileInterceptor } from '@nestjs/platform-express'
 
 @Controller('projects')
 export class ProjectsController {
@@ -8,6 +20,12 @@ export class ProjectsController {
     @Get()
     findAll() {
         return this.projectsService.findAll()
+    }
+
+    @Post()
+    @UseInterceptors(FileInterceptor('image'))
+    create(@Body() dto: CreateProjectDto, @UploadedFile() image) {
+        return this.projectsService.create(dto, image)
     }
 
     @Get(':id')

@@ -31,6 +31,6 @@ export class Project extends Model<Project, ProjectCreationAttrs> {
     image: string
 
     @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
-    @Column({ type: DataType.ARRAY(DataType.STRING), allowNull: true })
-    tags: string[]
+    @Column({ type: DataType.STRING, allowNull: true })
+    tags: string
 }

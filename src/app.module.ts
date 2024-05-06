@@ -4,7 +4,8 @@ import { SequelizeModule } from '@nestjs/sequelize'
 import { ConfigModule } from '@nestjs/config'
 import { ServeStaticModule } from '@nestjs/serve-static'
 import * as path from 'path'
-import { Project } from './projects/project.model'
+import { Project } from './projects/model/project.model'
+import { FilesModule } from './files/files.module'
 
 @Module({
     imports: [
@@ -33,6 +34,7 @@ import { Project } from './projects/project.model'
             synchronize: true,
         }),
         ProjectsModule,
+        FilesModule,
     ],
 })
 export class AppModule {}
