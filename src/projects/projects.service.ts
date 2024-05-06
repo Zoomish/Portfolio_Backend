@@ -11,9 +11,7 @@ export class ProjectsService {
         private fileService: FilesService
     ) {}
     async findAll() {
-        return await this.projectRepository.findAll({
-            include: { all: true },
-        })
+        return await this.projectRepository.findAll()
     }
 
     async create(dto: CreateProjectDto, image: any) {
