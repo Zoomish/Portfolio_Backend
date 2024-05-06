@@ -7,6 +7,7 @@ import { BotModule } from './bot/bot.module'
 import { FilesModule } from './files/files.module'
 import { Project } from './projects/model/project.model'
 import { ProjectsModule } from './projects/projects.module'
+import { configurator } from './configurator'
 
 @Module({
     imports: [
@@ -14,6 +15,7 @@ import { ProjectsModule } from './projects/projects.module'
         ConfigModule.forRoot({
             envFilePath: `.${process.env.NODE_ENV}.env`,
             isGlobal: true,
+            load: [configurator],
         }),
         ServeStaticModule.forRoot({
             rootPath: path.resolve(__dirname, 'static'),
