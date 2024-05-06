@@ -1,10 +1,14 @@
 import { Injectable, OnModuleInit } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import TelegramBot = require('node-telegram-bot-api')
+import { GreetingService } from './services/greeting.service'
 
 @Injectable()
 export class BotService implements OnModuleInit {
-    constructor(private readonly configService: ConfigService) {}
+    constructor(
+        private readonly configService: ConfigService,
+        private readonly greetingService: GreetingService
+    ) {}
 
     async onModuleInit() {
         const telegramToken = this.configService.get('telegram.token')
@@ -19,10 +23,7 @@ export class BotService implements OnModuleInit {
             const chatId = msg.chat.id
             const text = msg.text
             if (text === '/start') {
-                await bot.sendMessage(
-                    chatId,
-                    `Здравствуйте @${msg?.chat?.username}! Это мой бот(@Zoomish). Напишите мне любое сообщение и я отвечу вам в ближайшее время.`
-                )
+                return this.greetingService.greeting(bot, chatId, msg)
             }
             const msgWait = await bot.sendMessage(
                 msg.chat.id,
