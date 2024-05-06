@@ -1,14 +1,16 @@
 import { Module } from '@nestjs/common'
-import { ProjectsModule } from './projects/projects.module'
-import { SequelizeModule } from '@nestjs/sequelize'
 import { ConfigModule } from '@nestjs/config'
+import { SequelizeModule } from '@nestjs/sequelize'
 import { ServeStaticModule } from '@nestjs/serve-static'
 import * as path from 'path'
-import { Project } from './projects/model/project.model'
+import { BotModule } from './bot/bot.module'
 import { FilesModule } from './files/files.module'
+import { Project } from './projects/model/project.model'
+import { ProjectsModule } from './projects/projects.module'
 
 @Module({
     imports: [
+        BotModule,
         ConfigModule.forRoot({
             envFilePath: `.${process.env.NODE_ENV}.env`,
             isGlobal: true,
