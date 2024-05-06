@@ -22,6 +22,11 @@ export class ProjectsController {
         return this.projectsService.findAll()
     }
 
+    @Get('/AAA')
+    AAAA() {
+        return {}
+    }
+
     @Post()
     @UseInterceptors(FileInterceptor('image'))
     create(@Body() dto: CreateProjectDto, @UploadedFile() image) {

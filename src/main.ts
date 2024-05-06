@@ -6,7 +6,10 @@ async function bootstrap() {
     app.enableCors()
     function aaa() {
         setInterval(async () => {
-            await fetch('https://tg-bot-backend-61qy.onrender.com/loss')
+            await fetch(
+                'https://portfolio-backend-ur7a.onrender.com/projects/AAA'
+            )
+            console.log('AS')
         }, 1000 * 60)
     }
     await app.listen(process.env.PORT, () => aaa())
