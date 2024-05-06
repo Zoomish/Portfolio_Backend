@@ -1,7 +1,7 @@
 import { Injectable, OnModuleInit } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import TelegramBot = require('node-telegram-bot-api')
-import { GreetingService } from './services/greeting.service'
+import { GreetingService } from './services'
 
 @Injectable()
 export class BotService implements OnModuleInit {
