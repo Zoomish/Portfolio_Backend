@@ -5,7 +5,7 @@ import TelegramBot = require('node-telegram-bot-api')
 @Injectable()
 export class BotService {
     constructor(private readonly configService: ConfigService) {
-        const telegramToken = configService.get('telegram.token')
+        const telegramToken = this.configService.get('telegram.token')
         const bot = new TelegramBot(telegramToken, {
             polling: true,
         })
