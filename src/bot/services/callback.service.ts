@@ -16,11 +16,10 @@ export class CallbackService {
         if (action === 'edit') {
             const data = await this.projectService.findAll()
             text = JSON.stringify(data)
-            bot.sendPhoto([
+            bot.sendPhoto(
                 msg.chat.id,
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Moench_2339.jpg/300px-Moench_2339.jpg',
-                'AAA',
-            ])
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Moench_2339.jpg/300px-Moench_2339.jpg'
+            )
         }
 
         bot.editMessageText(text, opts)
