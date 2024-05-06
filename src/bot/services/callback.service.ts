@@ -5,7 +5,6 @@ import { ProjectsService } from 'src/projects/projects.service'
 export class CallbackService {
     constructor(private readonly projectService: ProjectsService) {}
     async callback(bot, callbackQuery) {
-        const data = await this.projectService.findAll()
         const action = callbackQuery.data
         const msg = callbackQuery.message
         const opts = {
@@ -15,7 +14,13 @@ export class CallbackService {
         let text
 
         if (action === 'edit') {
+            const data = await this.projectService.findAll()
             text = JSON.stringify(data)
+            bot.sendPhoto([
+                msg.chat.id,
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Moench_2339.jpg/300px-Moench_2339.jpg',
+                'AAA',
+            ])
         }
 
         bot.editMessageText(text, opts)
