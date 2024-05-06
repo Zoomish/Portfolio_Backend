@@ -18,15 +18,15 @@ export class ProjectsService {
 
     async create(dto: CreateProjectDto, image: any) {
         const fileName = await this.fileService.createFile(image)
-        const post = await this.projectRepository.create({
+        const project = await this.projectRepository.create({
             ...dto,
             image: fileName,
         })
-        return post
+        return project
     }
 
-    findOne(id: number) {
-        return `This action returns a #id projects-service`
+    async findOne(id: number) {
+        return await this.projectRepository.findByPk(id)
     }
 
     update(id: number) {
