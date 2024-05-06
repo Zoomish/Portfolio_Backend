@@ -11,7 +11,7 @@ export class GreetingService {
                     inline_keyboard: [
                         [
                             {
-                                text: 'Статистика чата',
+                                text: 'Мои проекты',
                                 url: 'https://tg-bot-frontend-three.vercel.app',
                             },
                         ],
