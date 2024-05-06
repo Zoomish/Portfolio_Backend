@@ -9,7 +9,6 @@ async function bootstrap() {
             await fetch(
                 'https://portfolio-backend-ur7a.onrender.com/projects/AAA'
             )
-            console.log('AS')
         }, 1000 * 60)
     }
     await app.listen(process.env.PORT, () => aaa())
