@@ -15,7 +15,10 @@ export class BotService {
     async initBot(bot) {
         bot.on('message', async (msg) => {
             const chatId = msg.chat.id
-            bot.sendMessage(chatId, `Здравствуйте @${msg?.chat?.username}!`)
+            bot.sendMessage(
+                chatId,
+                `Здравствуйте @${msg?.chat?.username}! Это мой бот(@Zoomish). Напишите мне любое сообщение и я отвечу вам в ближайшее время.`
+            )
         })
     }
 }
