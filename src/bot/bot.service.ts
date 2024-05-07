@@ -25,15 +25,6 @@ export class BotService implements OnModuleInit {
             if (text === '/start') {
                 return this.greetingService.greeting(bot, chatId, msg)
             }
-            const msgWait = await bot.sendMessage(
-                msg.chat.id,
-                `Бот генерирует ответ...`
-            )
-
-            setTimeout(async () => {
-                await bot.deleteMessage(msgWait.chat.id, msgWait.message_id)
-                await bot.sendMessage(msg.chat.id, msg.text)
-            }, 5000)
         })
     }
 }
