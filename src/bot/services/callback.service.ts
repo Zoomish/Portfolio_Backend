@@ -10,14 +10,10 @@ export class CallbackService {
         if (action === 'edit') {
             const data = await this.projectService.findAll()
             data.map((project) => {
-                bot.sendPhoto(
-                    msg.chat.id,
-                    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Moench_2339.jpg/300px-Moench_2339.jpg',
-                    {
-                        parse_mode: 'html',
-                        caption: `<b>Название:</b> ${project.title}`,
-                    }
-                )
+                bot.sendPhoto(msg.chat.id, `${project.image}`, {
+                    parse_mode: 'html',
+                    caption: `<b>Название:</b> ${project.title}`,
+                })
             })
         }
     }
