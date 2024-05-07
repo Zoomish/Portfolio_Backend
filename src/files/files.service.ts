@@ -13,7 +13,7 @@ export class FilesService {
                 fs.mkdirSync(filePath, { recursive: true })
             }
             fs.writeFileSync(path.join(filePath, fileName), file.buffer)
-            return fileName
+            return `${process.env.BASE_URL}/` + fileName
         } catch (error) {
             throw new HttpException(
                 error.message,

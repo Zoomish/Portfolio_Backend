@@ -7,24 +7,14 @@ export class CallbackService {
     async callback(bot, callbackQuery) {
         const action = callbackQuery.data
         const msg = callbackQuery.message
-        const opts = {
-            chat_id: msg.chat.id,
-            message_id: msg.message_id,
-        }
-        let text
-
         if (action === 'edit') {
             const data = await this.projectService.findAll()
-            text = JSON.stringify(data)
-            bot.sendPhoto(
-                msg.chat.id,
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Moench_2339.jpg/300px-Moench_2339.jpg',
-                {
-                    caption: text,
-                }
-            )
+            data.map((project) => {
+                bot.sendPhoto(msg.chat.id, `${project.image}`, {
+                    parse_mode: 'html',
+                    caption: `<b>Название:</b> ${project.title}`,
+                })
+            })
         }
-
-        bot.editMessageText(text, opts)
     }
 }
