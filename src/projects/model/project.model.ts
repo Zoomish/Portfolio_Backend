@@ -6,6 +6,8 @@ interface ProjectCreationAttrs {
     description: string
     image: string
     tags: string
+    repository: string
+    live: string
 }
 @Table({ tableName: 'projects' })
 export class Project extends Model<Project, ProjectCreationAttrs> {
@@ -33,4 +35,12 @@ export class Project extends Model<Project, ProjectCreationAttrs> {
     @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
     @Column({ type: DataType.STRING, allowNull: true })
     tags: string
+
+    @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
+    @Column({ type: DataType.STRING, allowNull: true })
+    repository: string
+
+    @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
+    @Column({ type: DataType.STRING, allowNull: true })
+    live: string
 }

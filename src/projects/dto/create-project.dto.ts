@@ -4,4 +4,8 @@ export class CreateProjectDto {
     readonly description: string
 
     readonly tags: string
+
+    readonly repository: string
+
+    readonly live: string
 }
