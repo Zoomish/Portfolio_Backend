@@ -12,7 +12,7 @@ export class CallbackService {
             await data.map(async (project) => {
                 await bot.sendPhoto(msg.chat.id, `${project.image}`, {
                     parse_mode: 'html',
-                    caption: `<b>Название:</b> ${project.title}`,
+                    caption: `<b>Название:</b> ${project.title}\n<b>Описание:</b> ${project.description}`,
                 })
             })
         }
