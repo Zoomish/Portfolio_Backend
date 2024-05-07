@@ -25,22 +25,22 @@ export class Project extends Model<Project, ProjectCreationAttrs> {
     title: string
 
     @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
-    @Column({ type: DataType.STRING, allowNull: true })
+    @Column({ type: DataType.STRING, allowNull: false })
     description: string
 
     @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
-    @Column({ type: DataType.STRING, allowNull: true })
+    @Column({ type: DataType.STRING, allowNull: false })
     image: string
 
     @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
-    @Column({ type: DataType.STRING, allowNull: true })
+    @Column({ type: DataType.STRING, allowNull: false })
     tags: string
 
     @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
-    @Column({ type: DataType.STRING, allowNull: true })
+    @Column({ type: DataType.STRING, allowNull: false })
     repository: string
 
     @ApiProperty({ example: '12345', description: 'Пароль пользователя' })
-    @Column({ type: DataType.STRING, allowNull: true })
+    @Column({ type: DataType.STRING, allowNull: false })
     live: string
 }
