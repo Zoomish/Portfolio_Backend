@@ -9,8 +9,8 @@ export class CallbackService {
         const msg = callbackQuery.message
         if (action === 'edit') {
             const data = await this.projectService.findAll()
-            data.map((project) => {
-                bot.sendPhoto(msg.chat.id, `${project.image}`, {
+            await data.map(async (project) => {
+                await bot.sendPhoto(msg.chat.id, `${project.image}`, {
                     parse_mode: 'html',
                     caption: `<b>Название:</b> ${project.title}`,
                 })
