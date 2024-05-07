@@ -8,14 +8,12 @@ export class FilesService {
     async createFile(file): Promise<string> {
         try {
             const fileName = uuid.v4() + '.jpg'
-            const filePath =
-                `${process.env.BASE_URL}` +
-                path.resolve(__dirname, '../../dist/', 'static')
+            const filePath = path.resolve(__dirname, '../../dist/', 'static')
             if (!fs.existsSync(filePath)) {
                 fs.mkdirSync(filePath, { recursive: true })
             }
             fs.writeFileSync(path.join(filePath, fileName), file.buffer)
-            return fileName
+            return `${process.env.BASE_URL}/` + fileName
         } catch (error) {
             throw new HttpException(
                 error.message,
