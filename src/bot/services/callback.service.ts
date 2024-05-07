@@ -4,7 +4,7 @@ import { ProjectsService } from 'src/projects/projects.service'
 @Injectable()
 export class CallbackService {
     constructor(private readonly projectService: ProjectsService) {}
-    async callback(bot, callbackQuery) {s
+    async callback(bot, callbackQuery) {
         const action = callbackQuery.data
         const msg = callbackQuery.message
         if (action === 'edit') {
