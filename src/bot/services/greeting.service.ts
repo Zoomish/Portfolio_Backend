@@ -1,9 +1,8 @@
 import { Injectable } from '@nestjs/common'
-import { CallbackService } from './callback.service'
 
 @Injectable()
 export class GreetingService {
-    constructor(private readonly callbackService: CallbackService) {}
+    constructor() {}
     async greeting(bot, chatId, msg) {
         await bot.sendMessage(
             chatId,
@@ -21,8 +20,5 @@ export class GreetingService {
                 },
             }
         )
-        await bot.on('callback_query', async (callbackQuery) => {
-            await this.callbackService.callback(bot, callbackQuery)
-        })
     }
 }

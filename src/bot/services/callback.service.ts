@@ -11,10 +11,7 @@ export class CallbackService {
     async callback(bot, callbackQuery) {
         const action = callbackQuery.data
         const msg = callbackQuery.message
-        const msgWait = await bot.sendMessage(
-            msg.chat.id,
-            `Бот генерирует ответ...`
-        )
+        const msgWait = await bot.sendMessage(msg.chat.id, `Получаю данные...`)
         switch (action) {
             case 'projects':
                 const data = await this.projectService.findAll()
