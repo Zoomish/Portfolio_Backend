@@ -9,6 +9,7 @@ import { FilesModule } from './files/files.module'
 import { Project } from './projects/model/project.model'
 import { ProjectsModule } from './projects/projects.module'
 import { UserModule } from './user/user.module'
+import { User } from './user/model/user.model'
 
 @Module({
     imports: [
@@ -35,10 +36,11 @@ import { UserModule } from './user/user.module'
                     rejectUnauthorized: false,
                 },
             },
-            models: [Project],
+            models: [Project, User],
             autoLoadModels: true,
             synchronize: true,
         }),
+        UserModule,
         ProjectsModule,
         FilesModule,
     ],
