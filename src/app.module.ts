@@ -4,13 +4,15 @@ import { SequelizeModule } from '@nestjs/sequelize'
 import { ServeStaticModule } from '@nestjs/serve-static'
 import * as path from 'path'
 import { BotModule } from './bot/bot.module'
+import { configurator } from './configurator'
 import { FilesModule } from './files/files.module'
 import { Project } from './projects/model/project.model'
 import { ProjectsModule } from './projects/projects.module'
-import { configurator } from './configurator'
+import { UserModule } from './user/user.module'
 
 @Module({
     imports: [
+        UserModule,
         BotModule,
         ConfigModule.forRoot({
             envFilePath: `.${process.env.NODE_ENV}.env`,
