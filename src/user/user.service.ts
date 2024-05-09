@@ -8,11 +8,16 @@ import { FilesService } from 'src/files/files.service'
 @Injectable()
 export class UserService {
     constructor(
-        @InjectModel(User) private projectRepository: typeof User,
+        @InjectModel(User) private userRepository: typeof User,
         private fileService: FilesService
     ) {}
-    create(createUserDto: CreateUserDto) {
-        return 'This action adds a new user'
+    async create(createUserDto: CreateUserDto, image: any) {
+        const fileName = await this.fileService.createFile(image)
+        const project = await this.userRepository.create({
+            ...createUserDto,
+            image: fileName,
+        })
+        return project
     }
 
     findAll() {
