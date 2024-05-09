@@ -11,7 +11,7 @@ export class CallbackService {
             msg.chat.id,
             `Бот генерирует ответ...`
         )
-        if (action === 'edit') {
+        if (action === 'projects') {
             const data = await this.projectService.findAll()
             await bot.deleteMessage(msgWait.chat.id, msgWait.message_id)
             await data.map(async (project) => {
