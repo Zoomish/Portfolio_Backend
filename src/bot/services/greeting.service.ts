@@ -18,18 +18,6 @@ export class GreetingService {
                             },
                         ],
                     ],
-                    keyboard: [
-                        [
-                            {
-                                text: 'Информация обо мне',
-                                callback_data: 'about',
-                            },
-                            {
-                                text: 'Мои проекты',
-                                callback_data: 'projects',
-                            },
-                        ],
-                    ],
                 },
             }
         )

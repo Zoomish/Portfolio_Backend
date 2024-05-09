@@ -39,7 +39,7 @@ export class CallbackService {
                         inline_keyboard: [
                             [
                                 {
-                                    text: 'Projects',
+                                    text: 'Мои проекты',
                                     callback_data: 'projects',
                                 },
                             ],
