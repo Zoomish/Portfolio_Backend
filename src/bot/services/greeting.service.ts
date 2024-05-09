@@ -13,8 +13,20 @@ export class GreetingService {
                     inline_keyboard: [
                         [
                             {
-                                text: 'About',
+                                text: 'Информация обо мне',
                                 callback_data: 'about',
+                            },
+                        ],
+                    ],
+                    keyboard: [
+                        [
+                            {
+                                text: 'Информация обо мне',
+                                callback_data: 'about',
+                            },
+                            {
+                                text: 'Мои проекты',
+                                callback_data: 'projects',
                             },
                         ],
                     ],
