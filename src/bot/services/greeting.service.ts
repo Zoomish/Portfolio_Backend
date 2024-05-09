@@ -7,7 +7,7 @@ export class GreetingService {
     async greeting(bot, chatId, msg) {
         await bot.sendMessage(
             chatId,
-            `Здравствуйте, ${msg?.chat?.first_name}! Это мой бот(@Zoomish). Он был написан для удобства HR-ов и для краткого обзора меня и моих проектов`,
+            `Здравствуйте, ${msg?.chat?.first_name}! Это мой бот(@Zoomish). Он был написан для удобства HR-ов и для краткого обзора информации обо мне и моих проектах`,
             {
                 reply_markup: {
                     inline_keyboard: [

@@ -11,6 +11,8 @@ export class CallbackService {
     async callback(bot, callbackQuery) {
         const action = callbackQuery.data
         const msg = callbackQuery.message
+        console.log(msg)
+
         const msgWait = await bot.sendMessage(
             msg.chat.id,
             `Бот генерирует ответ...`
