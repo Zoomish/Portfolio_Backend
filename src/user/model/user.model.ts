@@ -1,15 +1,15 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript'
 
-interface ProjectCreationAttrs {
-    title: string
-    description: string
+interface UserCreationAttrs {
+    name: string
+    email: string
     image: string
-    tags: string
-    repository: string
-    live: string
+    github: string
+    work: string
+    portfolio: string
 }
-@Table({ tableName: 'projects' })
-export class Project extends Model<Project, ProjectCreationAttrs> {
+@Table({ tableName: 'user' })
+export class User extends Model<User, UserCreationAttrs> {
     @Column({
         type: DataType.INTEGER,
         unique: true,
@@ -19,20 +19,20 @@ export class Project extends Model<Project, ProjectCreationAttrs> {
     id: number
 
     @Column({ type: DataType.STRING, unique: true, allowNull: false })
-    title: string
+    name: string
 
     @Column({ type: DataType.STRING, allowNull: false })
-    description: string
+    email: string
 
     @Column({ type: DataType.STRING, allowNull: false })
     image: string
 
     @Column({ type: DataType.STRING, allowNull: false })
-    tags: string
+    work: string
 
     @Column({ type: DataType.STRING, allowNull: false })
-    repository: string
+    github: string
 
     @Column({ type: DataType.STRING, allowNull: false })
-    live: string
+    portfolio: string
 }

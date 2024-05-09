@@ -1,11 +1,8 @@
 export class CreateUserDto {
-    readonly title: string
-
-    readonly description: string
-
-    readonly tags: string
-
-    readonly repository: string
-
-    readonly live: string
+    readonly name: string
+    readonly email: string
+    readonly image: string
+    readonly github: string
+    readonly work: string
+    readonly portfolio: string
 }
