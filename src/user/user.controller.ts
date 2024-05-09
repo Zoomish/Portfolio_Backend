@@ -14,7 +14,7 @@ import { UpdateUserDto } from './dto/update-user.dto'
 import { UserService } from './user.service'
 import { FileInterceptor } from '@nestjs/platform-express'
 
-@Controller('users')
+@Controller('user')
 export class UserController {
     constructor(private readonly userService: UserService) {}
 

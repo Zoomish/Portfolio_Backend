@@ -20,8 +20,8 @@ export class UserService {
         return project
     }
 
-    findAll() {
-        return `This action returns all users`
+    async findAll() {
+        return await this.userRepository.findAll()
     }
 
     findOne(id: number) {
