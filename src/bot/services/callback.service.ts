@@ -33,6 +33,19 @@ export class CallbackService {
             await bot.sendPhoto(msg.chat.id, `${user.image}`, {
                 parse_mode: 'html',
                 caption: `<b>Меня зовут:</b> ${user.name}\n<b>Мой email:</b> ${user.email}\n<b>Мой Гитхаб:</b> ${user.github}\n<b>Работаю в:</b> <a href='${work[0]}'>${work[1]}</a>\n<b>Мое портфолио:</b> <a href='${user.portfolio}'>${user.portfolio}</a>`,
+                reply_markup: {
+                    inline_keyboard: [
+                        [
+                            {
+                                text: 'Projects',
+                                callback_data: 'projects',
+                            },
+                        ],
+                    ],
+                },
+            })
+            await bot.on('callback_query', async (callbackQuery) => {
+                await this.callback(bot, callbackQuery)
             })
         }
     }
