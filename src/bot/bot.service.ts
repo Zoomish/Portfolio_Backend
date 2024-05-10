@@ -1,6 +1,6 @@
 import { Injectable, OnModuleInit } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
-import TelegramBot = require('node-telegram-bot-api')
+import telegram = require('node-telegram-bot-api')
 import {
     CallbackService,
     GreetingService,
@@ -20,7 +20,7 @@ export class BotService implements OnModuleInit {
 
     async onModuleInit() {
         const telegramToken = this.configService.get('telegram.token')
-        const bot = new TelegramBot(telegramToken, {
+        const bot = new telegram(telegramToken, {
             polling: true,
         })
         await this.initBot(bot)
