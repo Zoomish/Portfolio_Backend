@@ -1,25 +1,23 @@
 import { Injectable } from '@nestjs/common'
-import { ProjectsService } from 'src/projects/projects.service'
+import { ProjectService } from './project.service'
+import { MeService } from './me.service'
 
 @Injectable()
 export class CallbackService {
-    constructor(private readonly projectService: ProjectsService) {}
+    constructor(
+        private readonly projectService: ProjectService,
+        private readonly meService: MeService
+    ) {}
     async callback(bot, callbackQuery) {
         const action = callbackQuery.data
         const msg = callbackQuery.message
-        const msgWait = await bot.sendMessage(
-            msg.chat.id,
-            `Бот генерирует ответ...`
-        )
-        if (action === 'projects') {
-            const data = await this.projectService.findAll()
-            await bot.deleteMessage(msgWait.chat.id, msgWait.message_id)
-            await data.map(async (project) => {
-                await bot.sendPhoto(msg.chat.id, `${project.image}`, {
-                    parse_mode: 'html',
-                    caption: `<b>Название:</b> ${project.title}\n<b>Описание:</b> ${project.description}\n<b>Теги:</b> ${project.tags}\n<b>Посмотреть:</b> <a href='${project.live}'>${project.live}</a>\n<b>Репозиторий:</b> <a href='${project.repository}'>${project.repository}</a>`,
-                })
-            })
+        switch (action) {
+            case 'projects':
+                return await this.projectService.getProjects(bot, msg)
+            case 'about':
+                return await this.meService.getMe(bot, msg)
+            default:
+                break
         }
     }
 }
