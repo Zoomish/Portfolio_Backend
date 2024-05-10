@@ -12,12 +12,13 @@ export class MeService {
         await bot.deleteMessage(msgWait.chat.id, msgWait.message_id)
         return await bot.sendPhoto(msg.chat.id, `${user.image}`, {
             parse_mode: 'html',
-            caption: `<b>Меня зовут:</b> ${user.name}\n<b>Мой email:</b> ${user.email}\n<b>Мое портфолио:</b> <a href='${user.portfolio}'> Сайт визитка</a>\n<b>Мой Гитхаб:</b> ${user.github}\n<b>Мой опыт работы:</b> ${user.expirience}\n<b>Работаю в:</b> <a href='${work[0]}'>${work[1]}</a>\n<b>Мои навыки:</b> ${user.skills
+            caption: `<b>Меня зовут:</b> ${user.name}\n<b>Мой email:</b> ${user.email}\n<b>Мое портфолио:</b> <a href='${user.portfolio}'> Сайт визитка</a>\n<b>Мой Гитхаб:</b> ${user.github}\n<b>Мой опыт работы:</b> ${user.expirience}\n<b>Работаю в:</b> <a href='${work[0]}'>${work[1]}</a>\n<b>Мои навыки:</b> \n${user.skills
                 .replace(' ', '')
                 .split(',')
                 .map((skill) => {
-                    return `${skill}\n`
-                })}`,
+                    return `    ${skill}\n`
+                })
+                .join('')}`,
             reply_markup: {
                 inline_keyboard: [
                     [
