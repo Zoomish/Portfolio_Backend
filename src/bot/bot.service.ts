@@ -6,6 +6,7 @@ import {
     GreetingService,
     ProjectService,
     MeService,
+    HelpService,
 } from './services'
 
 @Injectable()
@@ -15,6 +16,7 @@ export class BotService implements OnModuleInit {
         private readonly projectService: ProjectService,
         private readonly meService: MeService,
         private readonly configService: ConfigService,
+        private readonly helpService: HelpService,
         private readonly greetingService: GreetingService
     ) {}
 
@@ -46,7 +48,7 @@ export class BotService implements OnModuleInit {
                         msg
                     )
                 case '/help':
-                    return this.greetingService.greeting(bot, chatId, msg)
+                    return this.helpService.help(bot, chatId)
                 default:
                     break
             }

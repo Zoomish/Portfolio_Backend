@@ -5,6 +5,7 @@ import {
     CallbackService,
     MeService,
     ProjectService,
+    HelpService,
 } from './services'
 import { ProjectsModule } from 'src/projects/projects.module'
 import { UserModule } from 'src/user/user.module'
@@ -17,6 +18,7 @@ import { UserModule } from 'src/user/user.module'
         CallbackService,
         ProjectService,
         MeService,
+        HelpService,
     ],
     exports: [],
 })
