@@ -5,7 +5,7 @@ export class HelpService {
     async help(bot, chatId) {
         await bot.sendMessage(
             chatId,
-            `/about - для просмотра информации обо мне\n/projects - для просмотра моих проектов\n/help - для просмотра команд`,
+            `/about - для просмотра информации обо мне\n/projects - для просмотра моих проектов`,
             {
                 reply_markup: {
                     inline_keyboard: [
