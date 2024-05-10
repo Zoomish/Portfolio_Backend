@@ -4,7 +4,8 @@ import { UserService } from 'src/user/user.service'
 @Injectable()
 export class MeService {
     constructor(private readonly userService: UserService) {}
-    async getMe(bot, msgWait, msg) {
+    async getMe(bot, msg) {
+        const msgWait = await bot.sendMessage(msg.chat.id, `Получаю данные...`)
         const data1 = await this.userService.findAll()
         const user = data1[0]
         const work = user.work.replace(' ', '').split(',')

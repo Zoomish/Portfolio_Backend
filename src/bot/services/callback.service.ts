@@ -11,12 +11,11 @@ export class CallbackService {
     async callback(bot, callbackQuery) {
         const action = callbackQuery.data
         const msg = callbackQuery.message
-        const msgWait = await bot.sendMessage(msg.chat.id, `Получаю данные...`)
         switch (action) {
             case 'projects':
-                return await this.projectService.getProjects(bot, msgWait, msg)
+                return await this.projectService.getProjects(bot, msg)
             case 'about':
-                return await this.meService.getMe(bot, msgWait, msg)
+                return await this.meService.getMe(bot, msg)
             default:
                 break
         }

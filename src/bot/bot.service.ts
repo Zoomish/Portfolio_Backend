@@ -36,17 +36,9 @@ export class BotService implements OnModuleInit {
                 case '/start':
                     return this.greetingService.greeting(bot, chatId, msg)
                 case '/about':
-                    const msgWait = await bot.sendMessage(
-                        msg.chat.id,
-                        `Получаю данные...`
-                    )
-                    return this.meService.getMe(bot, msgWait, msg)
+                    return this.meService.getMe(bot, msg)
                 case '/projects':
-                    return await this.projectService.getProjects(
-                        bot,
-                        msgWait,
-                        msg
-                    )
+                    return await this.projectService.getProjects(bot, msg)
                 case '/help':
                     return this.helpService.help(bot, chatId)
                 default:

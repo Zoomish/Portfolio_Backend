@@ -4,7 +4,8 @@ import { ProjectsService } from 'src/projects/projects.service'
 @Injectable()
 export class ProjectService {
     constructor(private readonly projectsService: ProjectsService) {}
-    async getProjects(bot, msgWait, msg) {
+    async getProjects(bot, msg) {
+        const msgWait = await bot.sendMessage(msg.chat.id, `Получаю данные...`)
         const data = await this.projectsService.findAll()
         await bot.deleteMessage(msgWait.chat.id, msgWait.message_id)
         return await data.map(async (project) => {
