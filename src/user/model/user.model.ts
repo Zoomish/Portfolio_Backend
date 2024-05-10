@@ -5,6 +5,8 @@ interface UserCreationAttrs {
     email: string
     image: string
     github: string
+    expirience: string
+    skills: string
     work: string
     portfolio: string
 }
@@ -28,7 +30,13 @@ export class User extends Model<User, UserCreationAttrs> {
     image: string
 
     @Column({ type: DataType.STRING, allowNull: false })
+    expirience: string
+
+    @Column({ type: DataType.STRING, allowNull: false })
     work: string
+
+    @Column({ type: DataType.STRING, allowNull: false })
+    skills: string
 
     @Column({ type: DataType.STRING, allowNull: false })
     github: string
