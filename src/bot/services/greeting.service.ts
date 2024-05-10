@@ -15,6 +15,10 @@ export class GreetingService {
                                 text: 'Информация обо мне',
                                 callback_data: 'about',
                             },
+                            {
+                                text: 'Мои проекты',
+                                callback_data: 'projects',
+                            },
                         ],
                     ],
                 },
