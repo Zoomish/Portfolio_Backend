@@ -30,22 +30,25 @@ export class BotService implements OnModuleInit {
         bot.on('message', async (msg) => {
             const chatId = msg.chat.id
             const text = msg.text
-            if (text === '/start') {
-                return this.greetingService.greeting(bot, chatId, msg)
-            }
-            if (text === '/about') {
-                const msgWait = await bot.sendMessage(
-                    msg.chat.id,
-                    `Получаю данные...`
-                )
-                return this.meService.getMe(bot, msgWait, msg)
-            }
-            if (text === '/projects') {
-                const msgWait = await bot.sendMessage(
-                    msg.chat.id,
-                    `Получаю данные...`
-                )
-                return await this.projectService.getProjects(bot, msgWait, msg)
+            switch (text) {
+                case '/start':
+                    return this.greetingService.greeting(bot, chatId, msg)
+                case '/about':
+                    const msgWait = await bot.sendMessage(
+                        msg.chat.id,
+                        `Получаю данные...`
+                    )
+                    return this.meService.getMe(bot, msgWait, msg)
+                case '/projects':
+                    return await this.projectService.getProjects(
+                        bot,
+                        msgWait,
+                        msg
+                    )
+                case '/help':
+                    return this.greetingService.greeting(bot, chatId, msg)
+                default:
+                    break
             }
         })
         bot.on('callback_query', async (callbackQuery) => {
