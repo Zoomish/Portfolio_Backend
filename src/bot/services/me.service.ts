@@ -54,15 +54,14 @@ export class MeService {
         return txt
     }
     async month(month) {
-        switch (month) {
-            case month == 1:
-                return 'месяц'
-            case month > 1 && month < 5:
-                return 'месяца'
-            case month > 4:
-                return 'месяцев'
-            default:
-                break
+        if (month == 1) {
+            return 'месяц'
+        }
+        if (month > 1 && month < 5) {
+            return 'месяца'
+        }
+        if (month > 4) {
+            return 'месяцев'
         }
     }
 }
