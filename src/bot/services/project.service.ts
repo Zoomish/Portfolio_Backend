@@ -12,7 +12,7 @@ export class ProjectService {
             await bot.sendPhoto(msg.chat.id, `${project.image}`, {
                 parse_mode: 'html',
                 caption: `<b>Название:</b> ${project.title}\n<b>Описание:</b> ${project.description}\n<b>Посмотреть:</b> <a href='${project.live}'>${project.live}</a>\n<b>Репозиторий:</b> <a href='${project.repository}'>${project.repository}</a>\n<b>Теги:</b> \n${project.tags
-                    .replace(' ', '')
+                    .replaceAll(' ', '')
                     .split(',')
                     .map((skill) => {
                         return `    ${skill}\n`
