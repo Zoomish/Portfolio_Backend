@@ -6,8 +6,7 @@ export class MeService {
     constructor(private readonly userService: UserService) {}
     async getMe(bot, msg) {
         const msgWait = await bot.sendMessage(msg.chat.id, `Получаю данные...`)
-        const data1 = await this.userService.findAll()
-        const user = data1[0]
+        const user = await this.userService.findAll()
         const expirience = Math.ceil(
             (new Date(new Date().toISOString().split('T')[0]).getTime() -
                 new Date(user.expirience).getTime()) /
