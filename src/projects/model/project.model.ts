@@ -1,4 +1,12 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript'
+import {
+    BelongsTo,
+    Column,
+    DataType,
+    ForeignKey,
+    Model,
+    Table,
+} from 'sequelize-typescript'
+import { User } from 'src/user/model/user.model'
 
 interface ProjectCreationAttrs {
     title: string
@@ -7,6 +15,7 @@ interface ProjectCreationAttrs {
     tags: string
     repository: string
     live: string
+    userId: number
 }
 @Table({ tableName: 'projects' })
 export class Project extends Model<Project, ProjectCreationAttrs> {
@@ -35,4 +44,11 @@ export class Project extends Model<Project, ProjectCreationAttrs> {
 
     @Column({ type: DataType.STRING, allowNull: false })
     live: string
+
+    @ForeignKey(() => User)
+    @Column({ type: DataType.INTEGER })
+    userId: number
+
+    @BelongsTo(() => User)
+    user: User
 }

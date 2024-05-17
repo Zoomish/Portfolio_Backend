@@ -1,4 +1,5 @@
 import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript'
+import { Project } from 'src/projects/model/project.model'
 import { Skill } from 'src/skill/model/skill.model'
 
 interface UserCreationAttrs {
@@ -38,6 +39,9 @@ export class User extends Model<User, UserCreationAttrs> {
 
     @HasMany(() => Skill)
     skills: Skill[]
+
+    @HasMany(() => Project)
+    projects: Project[]
 
     @Column({ type: DataType.STRING, allowNull: false })
     github: string
