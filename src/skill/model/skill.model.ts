@@ -28,7 +28,10 @@ export class Skill extends Model<Skill, UserCreationAttrs> {
     @Column({ type: DataType.STRING, allowNull: false })
     image: string
 
-    @BelongsTo(() => User)
     @ForeignKey(() => User)
+    @Column({ type: DataType.INTEGER })
+    userId: number
+
+    @BelongsTo(() => User)
     user: User
 }
