@@ -6,22 +6,18 @@ import {
     Param,
     Patch,
     Post,
-    UploadedFile,
-    UseInterceptors,
 } from '@nestjs/common'
 import { CreateUserDto } from './dto/create-skill.dto'
 import { UpdateUserDto } from './dto/update-skill.dto'
 import { SkillService } from './skill.service'
-import { FileInterceptor } from '@nestjs/platform-express'
 
 @Controller('skill')
 export class SkillController {
     constructor(private readonly skillService: SkillService) {}
 
     @Post()
-    @UseInterceptors(FileInterceptor('image'))
-    create(@Body() createUserDto: CreateUserDto, @UploadedFile() image) {
-        return this.skillService.create(createUserDto, image)
+    create(@Body() createUserDto: CreateUserDto) {
+        return this.skillService.create(createUserDto)
     }
 
     @Get()
