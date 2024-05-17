@@ -1,4 +1,11 @@
-import { BelongsTo, Column, DataType, Model, Table } from 'sequelize-typescript'
+import {
+    BelongsTo,
+    Column,
+    DataType,
+    ForeignKey,
+    Model,
+    Table,
+} from 'sequelize-typescript'
 import { User } from 'src/user/model/user.model'
 
 interface UserCreationAttrs {
@@ -22,5 +29,6 @@ export class Skill extends Model<Skill, UserCreationAttrs> {
     image: string
 
     @BelongsTo(() => User)
+    @ForeignKey(() => User)
     user: User
 }
