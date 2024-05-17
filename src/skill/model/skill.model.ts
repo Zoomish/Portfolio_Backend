@@ -29,7 +29,7 @@ export class Skill extends Model<Skill, UserCreationAttrs> {
     image: string
 
     @ForeignKey(() => User)
-    @Column({ type: DataType.INTEGER })
+    @Column({ type: DataType.INTEGER, defaultValue: 1 })
     userId: number
 
     @BelongsTo(() => User)
