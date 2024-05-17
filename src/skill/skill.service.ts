@@ -6,7 +6,7 @@ import { User } from './model/skill.model'
 import { FilesService } from 'src/files/files.service'
 
 @Injectable()
-export class UserService {
+export class SkillService {
     constructor(
         @InjectModel(User) private userRepository: typeof User,
         private fileService: FilesService
