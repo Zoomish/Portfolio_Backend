@@ -10,6 +10,8 @@ import { Project } from './projects/model/project.model'
 import { ProjectsModule } from './projects/projects.module'
 import { UserModule } from './user/user.module'
 import { User } from './user/model/user.model'
+import { Skill } from './skill/model/skill.model'
+import { SkillModule } from './skill/skill.module'
 
 @Module({
     imports: [
@@ -36,10 +38,11 @@ import { User } from './user/model/user.model'
                     rejectUnauthorized: false,
                 },
             },
-            models: [Project, User],
+            models: [Project, User, Skill],
             autoLoadModels: true,
             synchronize: true,
         }),
+        SkillModule,
         UserModule,
         ProjectsModule,
         FilesModule,
