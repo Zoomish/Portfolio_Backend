@@ -22,7 +22,9 @@ export class SkillService {
     }
 
     async findAll() {
-        return await this.skillRepository.findOne()
+        return await this.skillRepository.findAll({
+            include: { all: true },
+        })
     }
 
     findOne(id: number) {
