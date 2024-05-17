@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { CreateUserDto } from './dto/create-skill.dto'
+import { CreatSkillDto } from './dto/create-skill.dto'
 import { UpdateUserDto } from './dto/update-skill.dto'
 import { InjectModel } from '@nestjs/sequelize'
 import { Skill } from './model/skill.model'
@@ -7,7 +7,7 @@ import { Skill } from './model/skill.model'
 @Injectable()
 export class SkillService {
     constructor(@InjectModel(Skill) private skillRepository: typeof Skill) {}
-    async create(createSkillDto: CreateUserDto) {
+    async create(createSkillDto: CreatSkillDto) {
         const project = await this.skillRepository.create({
             ...createSkillDto,
         })

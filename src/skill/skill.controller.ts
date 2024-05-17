@@ -7,7 +7,7 @@ import {
     Patch,
     Post,
 } from '@nestjs/common'
-import { CreateUserDto } from './dto/create-skill.dto'
+import { CreatSkillDto } from './dto/create-skill.dto'
 import { UpdateUserDto } from './dto/update-skill.dto'
 import { SkillService } from './skill.service'
 
@@ -16,7 +16,7 @@ export class SkillController {
     constructor(private readonly skillService: SkillService) {}
 
     @Post()
-    create(@Body() createUserDto: CreateUserDto) {
+    create(@Body() createUserDto: CreatSkillDto) {
         return this.skillService.create(createUserDto)
     }
 
