@@ -10,8 +10,8 @@ interface UserCreationAttrs {
     work: string
     portfolio: string
 }
-@Table({ tableName: 'user' })
-export class User extends Model<User, UserCreationAttrs> {
+@Table({ tableName: 'skill' })
+export class Skill extends Model<Skill, UserCreationAttrs> {
     @Column({
         type: DataType.INTEGER,
         unique: true,

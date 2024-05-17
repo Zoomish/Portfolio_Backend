@@ -3,10 +3,10 @@ import { SkillController } from './skill.controller'
 import { SkillService } from './skill.service'
 import { FilesModule } from 'src/files/files.module'
 import { SequelizeModule } from '@nestjs/sequelize'
-import { User } from './model/skill.model'
+import { Skill } from './model/skill.model'
 
 @Module({
-    imports: [FilesModule, SequelizeModule.forFeature([User])],
+    imports: [FilesModule, SequelizeModule.forFeature([Skill])],
     controllers: [SkillController],
     providers: [SkillService],
 })

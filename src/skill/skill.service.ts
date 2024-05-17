@@ -2,18 +2,18 @@ import { Injectable } from '@nestjs/common'
 import { CreateUserDto } from './dto/create-skill.dto'
 import { UpdateUserDto } from './dto/update-skill.dto'
 import { InjectModel } from '@nestjs/sequelize'
-import { User } from './model/skill.model'
+import { Skill } from './model/skill.model'
 import { FilesService } from 'src/files/files.service'
 
 @Injectable()
 export class SkillService {
     constructor(
-        @InjectModel(User) private userRepository: typeof User,
+        @InjectModel(Skill) private skillRepository: typeof Skill,
         private fileService: FilesService
     ) {}
     async create(createUserDto: CreateUserDto, image: any) {
         const fileName = await this.fileService.createFile(image)
-        const project = await this.userRepository.create({
+        const project = await this.skillRepository.create({
             ...createUserDto,
             image: fileName,
         })
@@ -21,7 +21,7 @@ export class SkillService {
     }
 
     async findAll() {
-        return await this.userRepository.findOne()
+        return await this.skillRepository.findOne()
     }
 
     findOne(id: number) {
