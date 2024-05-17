@@ -15,6 +15,7 @@ interface ProjectCreationAttrs {
     tags: string
     repository: string
     live: string
+    userId: number
 }
 @Table({ tableName: 'projects' })
 export class Project extends Model<Project, ProjectCreationAttrs> {
