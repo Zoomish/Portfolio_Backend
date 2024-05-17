@@ -37,7 +37,7 @@ export class User extends Model<User, UserCreationAttrs> {
     work: string
 
     @HasMany(() => Skill)
-    skills: string
+    skills: Skill[]
 
     @Column({ type: DataType.STRING, allowNull: false })
     github: string
