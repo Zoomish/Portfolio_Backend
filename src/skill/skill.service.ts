@@ -3,14 +3,20 @@ import { CreatSkillDto } from './dto/create-skill.dto'
 import { UpdateUserDto } from './dto/update-skill.dto'
 import { InjectModel } from '@nestjs/sequelize'
 import { Skill } from './model/skill.model'
+import { UserService } from 'src/user/user.service'
 
 @Injectable()
 export class SkillService {
-    constructor(@InjectModel(Skill) private skillRepository: typeof Skill) {}
+    constructor(
+        @InjectModel(Skill) private skillRepository: typeof Skill,
+        private userService: UserService
+    ) {}
 
     async create(createSkillDto: CreatSkillDto) {
+        const user = await this.userService.findAll()
         const skill = await this.skillRepository.create({
             ...createSkillDto,
+            userId: user.id,
         })
         return skill
     }

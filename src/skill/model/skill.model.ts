@@ -11,6 +11,7 @@ import { User } from 'src/user/model/user.model'
 interface UserCreationAttrs {
     title: string
     image: string
+    userId: number
 }
 @Table({ tableName: 'skill' })
 export class Skill extends Model<Skill, UserCreationAttrs> {
@@ -29,7 +30,7 @@ export class Skill extends Model<Skill, UserCreationAttrs> {
     image: string
 
     @ForeignKey(() => User)
-    @Column({ type: DataType.INTEGER, defaultValue: 1 })
+    @Column({ type: DataType.INTEGER })
     userId: number
 
     @BelongsTo(() => User)
