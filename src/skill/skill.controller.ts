@@ -16,8 +16,8 @@ export class SkillController {
     constructor(private readonly skillService: SkillService) {}
 
     @Post()
-    create(@Body() createUserDto: CreatSkillDto) {
-        return this.skillService.create(createUserDto)
+    create(@Body() createSkillDto: CreatSkillDto) {
+        return this.skillService.create(createSkillDto)
     }
 
     @Get()
