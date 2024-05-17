@@ -1,14 +1,9 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript'
+import { BelongsTo, Column, DataType, Model, Table } from 'sequelize-typescript'
+import { User } from 'src/user/model/user.model'
 
 interface UserCreationAttrs {
-    name: string
-    email: string
+    title: string
     image: string
-    github: string
-    expirience: string
-    skills: string
-    work: string
-    portfolio: string
 }
 @Table({ tableName: 'skill' })
 export class Skill extends Model<Skill, UserCreationAttrs> {
@@ -21,26 +16,11 @@ export class Skill extends Model<Skill, UserCreationAttrs> {
     id: number
 
     @Column({ type: DataType.STRING, unique: true, allowNull: false })
-    name: string
-
-    @Column({ type: DataType.STRING, allowNull: false })
-    email: string
+    title: string
 
     @Column({ type: DataType.STRING, allowNull: false })
     image: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
-    expirience: string
-
-    @Column({ type: DataType.STRING, allowNull: false })
-    work: string
-
-    @Column({ type: DataType.STRING, allowNull: false })
-    skills: string
-
-    @Column({ type: DataType.STRING, allowNull: false })
-    github: string
-
-    @Column({ type: DataType.STRING, allowNull: false })
-    portfolio: string
+    @BelongsTo(() => User)
+    user: User
 }
