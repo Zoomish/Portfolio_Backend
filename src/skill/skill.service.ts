@@ -8,10 +8,10 @@ import { Skill } from './model/skill.model'
 export class SkillService {
     constructor(@InjectModel(Skill) private skillRepository: typeof Skill) {}
     async create(createSkillDto: CreatSkillDto) {
-        const project = await this.skillRepository.create({
+        const skill = await this.skillRepository.create({
             ...createSkillDto,
         })
-        return project
+        return skill
     }
 
     async findAll() {
