@@ -7,6 +7,7 @@ import { Skill } from './model/skill.model'
 @Injectable()
 export class SkillService {
     constructor(@InjectModel(Skill) private skillRepository: typeof Skill) {}
+
     async create(createSkillDto: CreatSkillDto) {
         const skill = await this.skillRepository.create({
             ...createSkillDto,
