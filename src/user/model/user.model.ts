@@ -48,4 +48,10 @@ export class User extends Model<User, UserCreationAttrs> {
 
     @Column({ type: DataType.STRING, allowNull: false })
     portfolio: string
+
+    @Column({ type: DataType.STRING, allowNull: false })
+    phone: string
+
+    @Column({ type: DataType.STRING, allowNull: false })
+    tg: string
 }
