@@ -11,6 +11,9 @@ interface UserCreationAttrs {
     skills: string
     work: string
     portfolio: string
+    phone: string
+    tg: string
+    tg_bot: string
 }
 @Table({ tableName: 'user' })
 export class User extends Model<User, UserCreationAttrs> {
@@ -54,4 +57,7 @@ export class User extends Model<User, UserCreationAttrs> {
 
     @Column({ type: DataType.STRING, allowNull: false })
     tg: string
+
+    @Column({ type: DataType.STRING, allowNull: false })
+    tg_bot: string
 }
