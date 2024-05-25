@@ -7,7 +7,7 @@ async function bootstrap() {
     function aaa() {
         setInterval(async () => {
             await fetch(
-                'https://portfolio-backend-ur7a.onrender.com/projects/AAA'
+                'https://portfolio-backend-8h15.onrender.com/projects/AAA'
             )
         }, 1000 * 60 * 14 + 1000 * 30)
     }
