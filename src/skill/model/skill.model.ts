@@ -23,10 +23,10 @@ export class Skill extends Model<Skill, UserCreationAttrs> {
     })
     id: number
 
-    @Column({ type: DataType.STRING, unique: true, allowNull: false })
+    @Column({ type: DataType.STRING(4048), unique: true, allowNull: false })
     title: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     image: string
 
     @ForeignKey(() => User)

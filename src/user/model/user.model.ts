@@ -25,19 +25,19 @@ export class User extends Model<User, UserCreationAttrs> {
     })
     id: number
 
-    @Column({ type: DataType.STRING, unique: true, allowNull: false })
+    @Column({ type: DataType.STRING(4048), unique: true, allowNull: false })
     name: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     email: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     image: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     expirience: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     work: string
 
     @HasMany(() => Skill)
@@ -46,18 +46,18 @@ export class User extends Model<User, UserCreationAttrs> {
     @HasMany(() => Project)
     projects: Project[]
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     github: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     portfolio: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     phone: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     tg: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     tg_bot: string
 }

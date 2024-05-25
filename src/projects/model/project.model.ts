@@ -27,22 +27,22 @@ export class Project extends Model<Project, ProjectCreationAttrs> {
     })
     id: number
 
-    @Column({ type: DataType.STRING, unique: true, allowNull: false })
+    @Column({ type: DataType.STRING(4048), unique: true, allowNull: false })
     title: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     description: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     image: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     tags: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     repository: string
 
-    @Column({ type: DataType.STRING, allowNull: false })
+    @Column({ type: DataType.STRING(4048), allowNull: false })
     live: string
 
     @ForeignKey(() => User)
