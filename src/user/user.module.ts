@@ -1,14 +1,13 @@
 import { Module } from '@nestjs/common'
 import { UserController } from './user.controller'
 import { UserService } from './user.service'
-import { FilesModule } from 'src/files/files.module'
 import { SequelizeModule } from '@nestjs/sequelize'
 import { User } from './model/user.model'
 import { Skill } from 'src/skill/model/skill.model'
 import { Project } from 'src/projects/model/project.model'
 
 @Module({
-    imports: [FilesModule, SequelizeModule.forFeature([User, Skill, Project])],
+    imports: [SequelizeModule.forFeature([User, Skill, Project])],
     controllers: [UserController],
     providers: [UserService],
     exports: [UserService],
