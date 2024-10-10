@@ -7,12 +7,6 @@ async function bootstrap() {
         origin: 'https://portfolio-zoomish.vercel.app',
         credentials: true,
         methods: ['GET'],
-        allowedHeaders: [
-            'Origin',
-            'X-Requested-With',
-            'Content-Type',
-            'Accept',
-        ],
     })
     function aaa() {
         setInterval(
